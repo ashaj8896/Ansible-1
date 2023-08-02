@@ -1,6 +1,6 @@
-#
+!
 ---
-- name: nginx install and start services  # The name of the playbook.
+!- name: nginx install and start services  # The name of the playbook.
   hosts: all                            # The hosts/hosts group on which this playbook will be executed.
   become: true                          # Run the tasks with elevated privileges (sudo).
 
