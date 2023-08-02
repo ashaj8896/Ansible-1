@@ -3,10 +3,7 @@ pipeline {
     stages {
         stage('Ansible Playbook') {
             steps {
-                ansiblePlaybook(
-                    playbook: 'nginx-install.yml',
-                    
-                )
+                ansiblePlaybook credentialsId: 'ansible', extras: 'ansible --version', installation: 'Ansible', inventory: 'Inventory.ini', playbook: 'nginx-install.yml'
             }
         }
         stage('playbook') {
