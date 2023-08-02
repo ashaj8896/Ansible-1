@@ -1,15 +1,13 @@
----
-- name: nginx install and start services  # The name of the playbook.
-  hosts: all                            # The hosts/hosts group on which this playbook will be executed.
-  become: true                          # Run the tasks with elevated privileges (sudo).
-
-  tasks:                                # The list of tasks to be executed.
-    - name: install nginx              # A task named "install nginx."
-      apt:                             # The "apt" Ansible module to install packages (works on Debian/Ubuntu systems).
-        name: nginx                    # The name of the package to install, in this case, "nginx."
-        state: latest                  # Ensure the latest version of the package is installed.
-
-    - name: start nginx                # A task named "start nginx."
-      service:                         # The "service" Ansible module to manage system services.
-        name: nginx                    # The name of the service to manage, in this case, "nginx."
-        state: started                 # Ensure the service is started (running).
+pipeline {
+    agent any
+    stages {
+        stage('Ansible Playbook') {
+            steps {
+                ansiblePlaybook(
+                    playbook: 'nginx-install.yml',
+                    
+                )
+            }
+        }
+    }
+}
