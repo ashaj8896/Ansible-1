@@ -1,3 +1,4 @@
+#
 ---
 - name: nginx install and start services  # The name of the playbook.
   hosts: all                            # The hosts/hosts group on which this playbook will be executed.
