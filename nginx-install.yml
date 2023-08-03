@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Check Ansible Version') {
+        stage('Ansible Playbook') {
             steps {
-                sh 'ansible version'
+                ansiblePlaybook credentialsId: '0f90311d-0eea-4d96-8729-569313841a2f', inventory: 'Inventory.ini', playbook: 'nginx-install.yml' 
             }
         }
     }
