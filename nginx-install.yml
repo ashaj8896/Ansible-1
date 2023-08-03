@@ -3,13 +3,12 @@ pipeline {
     stages {
         stage('Ansible Playbook') {
             steps {
-               ansiblePlaybook credentialsId: '0f90311d-0eea-4d96-8729-569313841a2f', inventory: 'Inventory.ini', playbook: 'nginx-install.yml' 
+                ansiblePlaybook credentialsId: '0f90311d-0eea-4d96-8729-569313841a2f', inventory: 'Inventory.ini', playbook: 'nginx-install.yml' 
             }
         }
-        stage('playbook') {
+        stage('Check Ansible Version') {
             steps {
-                
-                ansiblePlaybook credentialsId: '0f90311d-0eea-4d96-8729-569313841a2f', extras: 'ansible version;', installation: 'Ansible', inventory: 'Inventory.ini', playbook: 'nginx-install.yml'
+                sh 'ansible version'
             }
         }
     }
