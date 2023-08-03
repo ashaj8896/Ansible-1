@@ -8,7 +8,7 @@ pipeline {
         }
         stage('playbook') {
             steps {
-                ansiblePlaybook credentialsId: 'ansible', installation: 'Ansible', inventory: 'Inventory.ini', playbook: 'nginx-install.yml'
+                ansiblePlaybook credentialsId: 'ansible', inventory: 'Inventory.ini', playbook: 'nginx-install.yml'
             }
         }
     }
