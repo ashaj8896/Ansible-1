@@ -1,14 +1,15 @@
-pipeline {
-    agent any
-    stages {
-        stage('Check Ansible Version') {
-            steps {
-                sh 'ansible --version'
-            }
-        }
-       stage ('ansible invoke') {
-           steps {
-                
-         
-    }
-}
+---
+- name: install & start nginx
+  hosts: all
+  become: true
+
+  tasks:
+  - name: install nginx
+    ansible.builtin.package:
+      name: nginx
+      state: latest
+
+  - name: start nginx
+    service:
+      name: nginx
+      state: started
